@@ -17,15 +17,16 @@ else:
 
 total = quantity * price
 
-is_member = input("are you memeber of our cafe ? (y/n) : ").lower
+is_member = (input("are you memeber of our cafe ? (y/n) : ").lower()
+             ).replace(".", "").replace(".", "")
 age = int(input("enter your age : "))
 
-if is_member == is_member and age >= 60:
+if is_member == "y" and age >= 60:
     total = total * 0.80
     print("as you are above 60 y and are member , you get 20 percent discount ")
     print(f"so your subtotal is {round(total)} ")
 
-elif is_member == is_member and age < 60:
+elif is_member == "y" and age < 60:
     total = total * 0.90
     print("as you are below 60 y and are member , you get 10 percent discount ")
     print(f"so your subtotal is {round(total)}")

@@ -7,8 +7,6 @@ if ((subscription or is_weekend) and is_country) and mobile_data >= 400:
     print("you can watch movie at high quality !!")
 elif ((subscription or is_weekend) and is_country) and mobile_data < 400:
     print("you can watch movie at low quality !!")
-elif ((subscription or is_weekend) and not is_country) and mobile_data < 400:
-    print("you cannot watch movie")
 else:
     print("you cannot watch the movie :( ")
 
