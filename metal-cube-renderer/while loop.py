@@ -32,3 +32,4 @@ while not 10 > num1 > 1:
     num1 = int(input("enter your number betweeen (1 and 10): "))
 
 print("byee")
+print(" :))))))))))) ")
