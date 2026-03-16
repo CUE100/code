@@ -34,5 +34,3 @@ while not 10 > num1 > 1:
 print("byee")
 print(" :))))))))))) ")
 print(" :))))))))))) ")
-
-print(" :))))))))))) ")
