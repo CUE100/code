@@ -15,8 +15,7 @@ print(f"your age is {age}")
 
 hero = input("enter the name of superhero you like (type im batman to quit) : ")
 
-
-while not hero == "im batman":
+while hero != "im batman":
     print(f"you like {hero} ")
 
     hero = input(
@@ -27,8 +26,8 @@ print("byee")
 
 num1 = int(input("enter your number betweeen (1 and 10): "))
 
-while not 10 > num1 > 1:
-    print(f"your number is {num1} but it should be 10 > num1 > 1")
+while num1 < 1 or num1 > 10:
+    print(f"your number is {num1} but it should be between 1 and 10")
     num1 = int(input("enter your number betweeen (1 and 10): "))
 
 print("byee")
