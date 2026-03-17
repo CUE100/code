@@ -19,4 +19,4 @@ elif operation == "*":
 elif operation == "/":
     print(f"the quotient of {first_number} and {second_number} is : {d}")
 else:
-    print("invalid operation")
+    print("invalid operation !")
