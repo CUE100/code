@@ -1,5 +1,4 @@
-print("")
-print("")
+import time
 print("")
 print("WELCOME TO OUR CAFE !!!")
 
@@ -24,18 +23,24 @@ age = int(input("enter your age : "))
 if is_member == "y" and age >= 60:
     total = total * 0.80
     print("as you are above 60 y and are member , you get 20 percent discount ")
-    print(f"so your subtotal is {round(total)} ")
+    print(f"so your subtotal is {round(total, 2)} ")
 
 elif is_member == "y" and age < 60:
     total = total * 0.90
     print("as you are below 60 y and are member , you get 10 percent discount ")
-    print(f"so your subtotal is {round(total)}")
+    print(f"so your subtotal is {round(total, 2)}")
 
 else:
     print("you have to pay full price :( ")
 
 status = "VIP user as subtotal greater than 50 $" if total >= 50 else "standard user as subtotal less than 50 $"
 print(status)
+
+for x in range(0, 3):
+    time.sleep(1)
+    print(x)
+print("your food in 3 seconds ")
+print("heres your food ")
 print(
-    f"you bought {item.capitalize()} ,{quantity} times, with your subtotal of {round(total)} $ !! ")
+    f"you bought {item.capitalize()} ,{quantity} times, with your subtotal of {round(total, 2)} $ !! ")
 print("have a nice day !!")
