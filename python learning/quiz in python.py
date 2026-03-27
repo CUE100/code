@@ -12,24 +12,6 @@ users_guess = []
 question_num = 0
 
 for x in questions:
-    for y in x:
-        print(y, end="")
+    print(x)
     print()
-
-    for z in options:
-        for i in z:
-            print(i, end=" ")
-        print()
-
-        user_answers = input("Enter your answer (A , B, C ,D): ").upper()
-        print("----------------------------")
-
-        question_num = question_num + 1
-
-        while user_answers not in ("A", "B", "C", "D"):
-            print("Enter a valid response! ")
-            user_answers = input("enter your answer (A , B, C ,D): ").upper()
-            users_guess.append(user_answers)
-        else:
-            users_guess.append(user_answers)
-            break
+    users_answer = input("enter your answer (A,B,C,D)")
