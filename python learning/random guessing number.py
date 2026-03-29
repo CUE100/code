@@ -18,6 +18,7 @@ while True:
         print("random number is less!")
         user_num = int(input("enter a number between 1 and 100 : "))
         attempts += 1
+
     elif user_num < rand_num:
         print("-----------------------------------------------------")
         print("random number is greater!")
