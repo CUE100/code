@@ -1,36 +1,31 @@
 import random
 
-print("-----------------------------------------------------")
-
+# Use 101 so that 100 is included in the range check
 rand_num = random.randint(1, 100)
-user_num = int(input("enter a number between 1 and 100 : "))
 attempts = 0
 
-while user_num not in range(1, 100):
-    user_num = int(input("enter a number between 1 and 100 : "))
-    if user_num in range(1, 100):
-        break
+print("----------------- PYTHON NUMBER GUESSING GAME -----------------")
 
 while True:
+    # 1. Get input in only ONE place
+    user_input = input("Enter a number between 1 and 100 (or 'q' to quit): ")
 
-    if user_num > rand_num:
-        print("-----------------------------------------------------")
-        print("random number is less!")
-        user_num = int(input("enter a number between 1 and 100 : "))
-        attempts += 1
-
-    elif user_num < rand_num:
-        print("-----------------------------------------------------")
-        print("random number is greater!")
-        user_num = int(input("enter a number between 1 and 100 : "))
-        attempts += 1
-
-    if user_num == rand_num:
-        print("-----------------------------------------------------")
-        print("you have identified correct number!")
-        attempts += 1
+    if user_input.lower() == 'q':
         break
 
-print("-----------------------------------------------------")
-print(f"You took {attempts} attempts to guess random number! ")
-print("-----------------------------------------------------")
+    user_num = int(user_input)
+    attempts += 1  # Only need to write this once!
+
+    # 2. Validation
+    if user_num < 1 or user_num > 100:
+        print("INVALID INPUT! Stay between 1 and 100.")
+        continue
+
+    # 3. Comparison Logic
+    if user_num > rand_num:
+        print("The random number is less!")
+    elif user_num < rand_num:
+        print("The random number is greater!")
+    else:
+        print(f"CORRECT! You identified the number in {attempts} attempts!")
+        break
