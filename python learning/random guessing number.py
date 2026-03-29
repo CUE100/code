@@ -7,25 +7,27 @@ attempts = 0
 print("----------------- PYTHON NUMBER GUESSING GAME -----------------")
 
 while True:
-    # 1. Get input in only ONE place
-    user_input = input("Enter a number between 1 and 100 (or 'q' to quit): ")
+
+    user_input = input(
+        "Enter a number between 1 and 100 (or 'q' to quit): ")
 
     if user_input.lower() == 'q':
         break
+    try:
+        user_num = int(user_input)
 
-    user_num = int(user_input)
-    attempts += 1  # Only need to write this once!
+    except ValueError:
+        print("Please enter a valid number!")
 
-    # 2. Validation
     if user_num < 1 or user_num > 100:
         print("INVALID INPUT! Stay between 1 and 100.")
         continue
-
-    # 3. Comparison Logic
+    attempts += 1
     if user_num > rand_num:
         print("The random number is less!")
     elif user_num < rand_num:
         print("The random number is greater!")
     else:
-        print(f"CORRECT! You identified the number in {attempts} attempts!")
+        print(
+            f"CORRECT! You identified the number in {attempts} attempts!")
         break

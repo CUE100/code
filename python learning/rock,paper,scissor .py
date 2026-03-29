@@ -17,6 +17,7 @@ while True:
     if user_choice not in options:
         print("Invalid input. Please try again.")
         continue
+
     print("Bot result in few seconds...")
     for x in reversed(range(4)):
         time.sleep(1)
