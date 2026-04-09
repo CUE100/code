@@ -35,7 +35,6 @@ def show_task():
 def remove_task_function():
     print("-------------------------------------------------")
     while True:
-        m = 0
         remove_task = input(
             "Name the task you want to remove(e to end and return to main menu): ").upper()
         if remove_task == "E":
