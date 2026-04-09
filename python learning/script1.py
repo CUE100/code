@@ -1,4 +1,4 @@
-work_today = []
+work_today = ["STUDY", "CAR WASH", "WATCH ANIME"]
 
 print("-------------------------------------------------")
 print("------------------TO DO LIST APP-----------------")
@@ -35,6 +35,7 @@ def show_task():
 def remove_task_function():
     print("-------------------------------------------------")
     while True:
+
         remove_task = input(
             "Name the task you want to remove(e to end and return to main menu): ").upper()
         if remove_task == "E":
@@ -51,20 +52,44 @@ def exit_function():
     print("Thanks for using this app! ")
 
 
-is_running = True
-while is_running:
-    to_do()
-    try:
-        user_number = input("Enter your choice: ")
-        user_number = int(user_number)
-    except ValueError:
-        print("Please enter a valid choice!")
-    if user_number == 1:
-        add_task()
-    elif user_number == 2:
-        show_task()
-    elif user_number == 3:
-        remove_task_function()
-    elif user_number == 4:
-        exit_function()
-        is_running = False
+def running_full():
+    is_running = True
+    while is_running:
+        to_do()
+        try:
+            user_number = input("Enter your choice: ")
+            user_number = int(user_number)
+        except ValueError:
+            print("Please enter a valid choice!")
+        if user_number == 1:
+            add_task()
+        elif user_number == 2:
+            show_task()
+        elif user_number == 3:
+            remove_task_function()
+        elif user_number == 4:
+            exit_function()
+            is_running = False
+
+
+def running_read_only():
+    is_running = True
+    while is_running:
+        print("\n--- GUEST MENU ---")
+        print("1. View today's to-do list")
+        print("2. Quit app")
+
+        try:
+            choice = int(input("Enter choice: "))
+        except ValueError:
+            continue
+
+        if choice == 1:
+            show_task()
+        elif choice == 2:
+            exit_function()
+            is_running = False
+
+
+if __name__ == "__main__":
+    running_full()
