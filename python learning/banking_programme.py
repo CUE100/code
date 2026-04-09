@@ -19,7 +19,7 @@ def pin_check():
         attempts += 1
         remaining = max_attempts - attempts
         print(f"INCORRECT PIN! {remaining} attempts left")
-    print("YOUR BANK ACCOUNT IS LOCKED!")
+    print("YOUR BANK ACCOUNT IS LOCKED!!")
     return False
 
 
