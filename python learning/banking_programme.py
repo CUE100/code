@@ -1,9 +1,8 @@
-balance = 0
 pin = 9192631770
+balance = 0
 
 
 def pin_check():
-    global attempts
     max_attempts = 3
     attempts = 0
     while attempts < max_attempts:
@@ -19,8 +18,7 @@ def pin_check():
         attempts += 1
         remaining = max_attempts - attempts
         print(f"INCORRECT PIN! {remaining} attempts left")
-    print("YOUR BANK ACCOUNT IS LOCKED!!")
-    return False
+    print("YOUR BANK ACCOUNT IS LOCKED!")
 
 
 def main_menu():
@@ -33,43 +31,56 @@ def main_menu():
     print()
 
 
-def show():
+def show(current_balance):
     print("-------------------------------------------------")
-    print(f"Your bank balance is : {balance:.2f}")
+    print(f"Your bank balance is : {current_balance:.2f}")
 
 
-def deposit():
-    global balance
-    try:
-        amount = float(
-            input("Enter the amount you want to deposit (0 to cancel): "))
-        if amount < 0:
-            print("Please enter a number greater than 0.")
-            return
-        if amount == 0:
-            return
-        balance += amount
-        show()
-    except ValueError:
-        print("Please enter a valid amount!")
+def deposit(balance):
+
+    while True:
+        try:
+            amount = float(
+                input("Enter the amount you want to deposit (0 to cancel): "))
+
+            if amount == 0:
+                return balance
+            if amount < 0:
+                print("Please enter a number greater than 0.")
+                continue
+            balance += amount
+            show(balance)
+            if amount == 0:
+                break
+
+        except ValueError:
+            print("Please enter a valid amount!")
+
+    return balance
 
 
-def withdraw():
-    global balance
-    try:
-        amount = float(
-            input("Enter the amount you want to withdraw (0 to cancel): "))
-        if amount < 0:
-            print("Please enter a number greater than 0.")
-            return
-        if amount == 0:
-            return
-        if balance - amount < 0:
-            print("WARNING: YOU ARE IN DEBT!")
-        balance -= amount
-        show()
-    except ValueError:
-        print("Please enter a valid amount!")
+def withdraw(balance):
+
+    while True:
+        try:
+            amount = float(
+                input("Enter the amount you want to withdraw (0 to cancel): "))
+
+            if amount == 0:
+                return balance
+            if amount < 0:
+                print("Please enter a number greater than 0.")
+                continue
+            if balance - amount < 0:
+                print("WARNING: YOU ARE IN DEBT!")
+            balance -= amount
+            show(balance)
+            if amount == 0:
+                break
+
+        except ValueError:
+            print("Please enter a valid amount!")
+    return balance
 
 
 def exit():
@@ -79,6 +90,8 @@ def exit():
 
 # MAIN PROGRAMME
 def main():
+    balance = 0
+
     if not pin_check():
         return
     while True:
@@ -91,11 +104,11 @@ def main():
             print("Please enter a valid number ! ")
             continue
         if choice == 1:
-            show()
+            show(balance)
         elif choice == 2:
-            deposit()
+            balance = deposit(balance)
         elif choice == 3:
-            withdraw()
+            balance = withdraw(balance)
         elif choice == 4:
             exit()
             break
