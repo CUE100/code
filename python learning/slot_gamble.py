@@ -1,6 +1,6 @@
 import random
 symbols = ["💀", "🫥", "🦇", "💻", "🎶"]
-balance = 1000
+balance = 100
 
 
 def get_input(balance):
@@ -11,9 +11,6 @@ def get_input(balance):
             if bet_amount < 0:
                 print("Please enter a number greater than zero!")
                 continue
-            if bet_amount == 0:
-                print("Thanks for betting with us.")
-                break
             if bet_amount > balance:
                 print("Please enter a bet less than your fundings!")
                 continue
@@ -32,6 +29,7 @@ def random_symbols():
 
 
 def actual_game(random_symbol1, random_symbol2, random_symbol3, bet_amount, balance):
+
     print("----------------------------------------------------------")
     print(f"{random_symbol1} | {random_symbol2} | {random_symbol3}")
     print("----------------------------------------------------------")
@@ -65,9 +63,7 @@ def actual_game(random_symbol1, random_symbol2, random_symbol3, bet_amount, bala
         balance = balance + bet_amount
         print("----------------------------------------------------------")
         print(f"Now your total is {bet_amount} with {balance} balance ")
-    elif bet_amount == 0:
-        print("Thanks for betting with us !")
-        return
+
     else:
         print("Better luck this time! ")
         balance = balance - bet_amount
@@ -87,6 +83,9 @@ def main():
                               random_symbol3, bet_amount, balance)
         if balance < 1:
             print("You are broke ! :( ")
+            break
+        elif bet_amount == 0:
+            print("Thanks for betting with us !")
             break
 
 
