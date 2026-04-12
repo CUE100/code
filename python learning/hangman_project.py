@@ -79,18 +79,22 @@ def random_word():
 
 
 def user_guess(guessed_letters):
-    print("-" * 40)
-    user_guess_input = input("Enter a letter for your guess: ").upper()
-    print("-" * 40)
-    length_word = len(user_guess_input)
-    if length_word != 1 or user_guess_input in string.digits or user_guess_input in string.punctuation or "" == user_guess_input:
-        print("Please enter a letter.")
+    while True:
+        print("-" * 40)
+        user_guess_input = input("Enter a letter for your guess: ").upper()
+        print("-" * 40)
+        length_word = len(user_guess_input)
 
-    if user_guess_input in guessed_letters:
-        print("YOU HAVE ALREADY ENTERED IT !")
-    else:
-        guessed_letters.append(user_guess_input)
-    return user_guess_input
+        if length_word != 1 or user_guess_input in string.digits or user_guess_input in string.punctuation or "" == user_guess_input:
+            print("Please enter a letter.")
+
+        elif user_guess_input in guessed_letters:
+            print("YOU HAVE ALREADY ENTERED IT !")
+
+        else:
+            guessed_letters.append(user_guess_input)
+            break
+        return user_guess_input
 
 
 def display_board(word, guessed_letters):
@@ -121,12 +125,12 @@ def main():
     guessed_letters = []
     word = random_word()
     while True:
-        user_guess(guessed_letters)
+
         lives, board_string = display_board(word, guessed_letters)
         if lives == 0:
             print("-" * 40)
             print("GAME OVER! YOU LOST!")
-            print(f"The word was : {wordz}")
+            print(f"The word was : {word}")
             print("-" * 40)
             break
         if "_" not in board_string:
@@ -134,6 +138,7 @@ def main():
             print("YOU WON THIS GAME!")
             print("-" * 40)
             break
+        user_guess(guessed_letters)
 
 
 if __name__ == '__main__':
