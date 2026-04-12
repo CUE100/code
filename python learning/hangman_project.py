@@ -79,34 +79,61 @@ def random_word():
 
 
 def user_guess(guessed_letters):
-
+    print("-" * 40)
     user_guess_input = input("Enter a letter for your guess: ").upper()
+    print("-" * 40)
     length_word = len(user_guess_input)
     if length_word != 1 or user_guess_input in string.digits or user_guess_input in string.punctuation or "" == user_guess_input:
         print("Please enter a letter.")
 
+    if user_guess_input in guessed_letters:
+        print("YOU HAVE ALREADY ENTERED IT !")
     else:
         guessed_letters.append(user_guess_input)
     return user_guess_input
 
 
 def display_board(word, guessed_letters):
+    lives = 6
+    wrong_guesses = 0
     board_string = ""
     for letter in word:
         if letter in guessed_letters:
             board_string = board_string + letter + " "
         else:
-            board_string = board_string + "_"
+            board_string = board_string + "_ "
+    for guess in guessed_letters:
+        if guess not in word:
+            wrong_guesses += 1
 
-    print(board_string)
+    lives -= wrong_guesses
+
+    for key, value in hangman_stages.items():
+        if key == lives:
+            print(value)
+            print(f"{lives} tries remaining.")
+            print(board_string)
+    return lives, board_string
 
 
 def main():
+
     guessed_letters = []
     word = random_word()
     while True:
         user_guess(guessed_letters)
-        display_board(word, guessed_letters)
+        lives, board_string = display_board(word, guessed_letters)
+        if lives == 0:
+            print("-" * 40)
+            print("GAME OVER! YOU LOST!")
+            print(f"The word was : {wordz}")
+            print("-" * 40)
+            break
+        if "_" not in board_string:
+            print("-" * 40)
+            print("YOU WON THIS GAME!")
+            print("-" * 40)
+            break
 
 
 if __name__ == '__main__':
