@@ -81,10 +81,11 @@ def random_word():
 def user_guess(guessed_letters):
     while True:
         print("-" * 40)
-        user_guess_input = input("Enter a letter for your guess: ").upper()
+        user_guess_input = input(
+            "Enter a letter for your guess (type '?' for hint): ").upper()
         print("-" * 40)
-        length_word = len(user_guess_input)
 
+        length_word = len(user_guess_input)
         if length_word != 1 or user_guess_input in string.digits or user_guess_input in string.punctuation or "" == user_guess_input:
             print("Please enter a letter.")
 
@@ -94,7 +95,7 @@ def user_guess(guessed_letters):
         else:
             guessed_letters.append(user_guess_input)
             break
-        return user_guess_input
+    return user_guess_input
 
 
 def display_board(word, guessed_letters):
