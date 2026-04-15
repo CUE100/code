@@ -12,7 +12,7 @@ class Car:
 
     def electric_car(self, battery_size):
         print(
-            f"You have {self.year} - {self.model} with {self.engine} of {self.color} color and has {battery_size}kg batter weight.")
+            f"You have {self.year} - {self.model} with {self.engine} of {self.color} color and has {battery_size}kg battery weight.")
 
 
 car1 = Car("Porsche911", "2026", "Aesthetic white-grey", "12CC(V12 engine)")
