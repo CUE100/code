@@ -20,6 +20,7 @@ class Square(Shapes):
 
     def area(self):
         print(f"Area of this square is {self.side ** 2}")
+        super().describe()
 
 
 class Triangle(Shapes):
@@ -35,7 +36,7 @@ class Triangle(Shapes):
 square = Square("Square", "Red", True, True, 10)
 triangle = Triangle("Triangle", "Blue", False, True, 10, 20)
 print("_" * 30)
-square.describe()
+square.area()
 print("_" * 30)
 triangle.describe()
 print("_" * 30)
