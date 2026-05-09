@@ -1,4 +1,4 @@
-import script1
+import turtle
 
-if __name__ == 'main':
-    script1.running_read_only()
+t = turtle.Turtle()
+t.forward(400)

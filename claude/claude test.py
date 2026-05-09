@@ -95,7 +95,8 @@ def mark_task_done_or_delete(tasks):
             print(f"\n✅ Task {task_index + 1} marked as DONE!")
         elif action == 'X':
             deleted_task = tasks.pop(task_index)
-            print(f"\n🗑️  Task '{deleted_task['description']}' permanently deleted.")
+            print(
+                f"\n🗑️  Task '{deleted_task['description']}' permanently deleted.")
         else:
             print("❌ Invalid action selected.")
     except ValueError:
