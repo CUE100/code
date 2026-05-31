@@ -1,7 +1,7 @@
 class students:
 
     class_num = 10
-    school = "xyz"
+    school = "DPS"
     num_students = 0
 
     def __init__(self, name, rollno):

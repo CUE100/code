@@ -9,7 +9,7 @@ class Students:
         Students.total_gpa += gpa
 
     def get_infpo(self):
-        return f"The name of student is {self.name} with {self.gpa}"
+        print(f"The name of student is {self.name} with {self.gpa} gpa.")
 
     @classmethod
     def avg_gpa(cls):
@@ -20,4 +20,4 @@ a = Students("A", 9)
 b = Students("B", 3.8)
 c = Students("C", 3.8)
 
-print(Students.avg_gpa())
+Students.get_infpo(a)

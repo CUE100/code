@@ -1,5 +1,5 @@
 import os
-file_path = "/Users/rohinboora/code"
+file_path = "/Users/rohinboora/code/python learning/practise2.py"
 
 if os.path.exists(file_path):
     print(f"{file_path} DETECTED !")

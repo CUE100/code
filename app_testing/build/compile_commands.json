@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/rohinboora/code/app_testing/build",
+  "command": "/usr/bin/clang++ -I/Users/rohinboora/code/app_testing/include -isystem /opt/homebrew/opt/sfml@2/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/isometric-game.dir/src/main.cpp.o -c /Users/rohinboora/code/app_testing/src/main.cpp",
+  "file": "/Users/rohinboora/code/app_testing/src/main.cpp",
+  "output": "/Users/rohinboora/code/app_testing/build/CMakeFiles/isometric-game.dir/src/main.cpp.o"
+}
+]

@@ -1,8 +1,8 @@
-text_data = "Hello if you are seeing this message then remember:" \
-    "1 NPC escaped, 8 billion remaining"
+superheros = ["batman", "superman", "robin"]
 
-file_path = "outputs.txt"
+file_path = "/Users/rohinboora/code/python learning/output.txt"
 
-with open(file_path, "w") as file:
-    file.write(text_data)
-    print("SUCCESSFULY DONE ! ")
+with open(file_path, "a") as file:
+    for superhero in superheros:
+        file.write("\n" + superhero)
+        print("SUCCESSFULY DONE ! ")
