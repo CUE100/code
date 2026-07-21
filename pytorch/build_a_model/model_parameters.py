@@ -24,8 +24,9 @@ class Neuralnetwork(nn.Module):
         return logits
     
 
-model = Neuralnetwork().to(device)
-print(f"Model structure: {model}\n\n")
+x = torch.rand(3,28,28)
+model = Neuralnetwork()
+print(model(x))
 
 for name, param in model.named_parameters():
     print(f"Layer: {name} | Size: {param.size()} | Values : {param[:2]} \n")
