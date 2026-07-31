@@ -1,6 +1,6 @@
 cars = ["ferrari", "porsche911",  "BMW"]
 guns = ["mp5", "revolver",  "bazooka"]
-games = ["GTA6", "minecraft", "lokicraft", "dakshwaligame"]
+games = ["GTA6", "minecraft..", "lokicraft", "dakshwaligame"]
 
 boys_interest = [cars, guns, games]
 
